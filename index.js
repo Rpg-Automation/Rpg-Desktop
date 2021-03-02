@@ -1,4 +1,7 @@
-const { app, BrowserWindow } = require("electron");
+require("dotenv").config();
+const { app, BrowserWindow, ipcMain } = require("electron");
+
+const IS_DEV = (process.env.NODE_ENV == "development" ? true : false);
 
 function createWindow() {
 	const win = new BrowserWindow({
@@ -10,8 +13,8 @@ function createWindow() {
 			nodeIntegration: true
 		}
 	});
-	//win.removeMenu();
 	win.loadFile("public/index.html");
+	IS_DEV ? win.webContents.openDevTools() : win.removeMenu();
 }
 
 app.whenReady().then(createWindow);
@@ -26,4 +29,9 @@ app.on("activate", () => {
 	if (BrowserWindow.getAllWindows().length === 0) {
 		createWindow();
 	}
+});
+
+// listener events that emit back and forth to the html (renderer)
+ipcMain.on("test", (event, arg) => {
+	event.returnValue = `hello there ${arg}`;
 });

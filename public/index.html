@@ -13,4 +13,11 @@
         and Electron <script>document.write(process.versions.electron)</script>.
     </p>
 </body>
+<script>
+    const { ipcRenderer } = require('electron')
+
+    const val = ipcRenderer.sendSync('test', new Date())
+    console.log(val)
+</script>
+
 </html>
