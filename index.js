@@ -9,8 +9,11 @@ function createWindow() {
 		height: 600,
 		resizable: false,
 		maximizable: false,
+		frame: false,
+		transparent: true,
 		webPreferences: {
-			nodeIntegration: true
+			nodeIntegration: true,
+			enableRemoteModule: true
 		}
 	});
 	win.loadFile("public/index.html");
