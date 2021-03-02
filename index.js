@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 
 const config = require("./helpers/config");
+const { demo } = require("./helpers/robot");
 
 function createWindow() {
 	const win = new BrowserWindow({
@@ -42,3 +43,20 @@ ipcMain.on("test", (event, arg) => {
 ipcMain.on("get-creds", (event) => {
 	event.returnValue = config;
 });
+
+// determines loop
+let shouldRun = false;
+ipcMain.on("run-true", (event) => {
+	shouldRun = true;
+	event.returnValue = "state set to true";
+});
+
+ipcMain.on("run-false", (event) => {
+	shouldRun = false;
+	event.returnValue = "state set to false";
+});
+
+setInterval(() => {
+	console.log(shouldRun);
+	if (shouldRun) demo();
+}, 5000);

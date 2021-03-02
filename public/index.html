@@ -20,10 +20,18 @@
         Chrome <script>document.write(process.versions.chrome)</script>,
         and Electron <script>document.write(process.versions.electron)</script>.
 	</p>
+
+	<button id="start-loop">start</button>
+	<button id="stop-loop">stop</button>
 </body>
 
 <script src="./static/js/events.js"></script>
 <script src="./static//js/actions.js"></script>
 <script src="./static/js/socket.js"></script>
-
+<script>
+	socket.on("client-stop", () => {
+		const shouldRunFalse = ipcRenderer.sendSync("run-false");
+		console.log(shouldRunFalse);
+	});
+</script>
 </html>
