@@ -4,12 +4,14 @@ function createWindow() {
 	const win = new BrowserWindow({
 		width: 800,
 		height: 600,
+		resizable: false,
+		maximizable: false,
 		webPreferences: {
 			nodeIntegration: true
 		}
 	});
-
-	win.loadFile("index.html");
+	//win.removeMenu();
+	win.loadFile("public/index.html");
 }
 
 app.whenReady().then(createWindow);
