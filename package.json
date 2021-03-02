@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "rebuild": ".\\node_modules\\.bin\\electron-rebuild",
-	"distribute": "npm run lint && electron-packager . --overwrite --prune=true --asar --out=release-builds",
+    "distribute": "npm run lint && electron-packager . --overwrite --prune=true --asar --out=release-builds",
     "distribute-all": "npm run lint && electron-packager . --overwrite --prune=true --asar --out=release-builds --all",
     "lint": "eslint --fix --ext .js,.jsx .",
     "start": "electron ."
@@ -30,6 +30,7 @@
     "dotenv": "^8.2.0",
     "electron-packager": "^15.2.0",
     "electron-rebuild": "^2.3.5",
-    "robotjs": "^0.6.0"
+    "robotjs": "^0.6.0",
+    "socket.io-client": "^3.1.2"
   }
 }

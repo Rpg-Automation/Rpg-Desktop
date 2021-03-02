@@ -1,4 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 const { ipcRenderer } = require("electron");
 
-const val = ipcRenderer.sendSync("test", new Date());
-console.log(val);
+const config = ipcRenderer.sendSync("get-creds");

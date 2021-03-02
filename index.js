@@ -1,13 +1,13 @@
-require("dotenv").config();
 const { app, BrowserWindow, ipcMain } = require("electron");
 
-const IS_DEV = (process.env.NODE_ENV == "development" ? true : false);
+const config = require("./helpers/config");
 
 function createWindow() {
 	const win = new BrowserWindow({
 		width: 800,
 		height: 600,
 		resizable: false,
+		allowRunningInsecureContent: true,
 		maximizable: false,
 		frame: false,
 		transparent: true,
@@ -17,7 +17,7 @@ function createWindow() {
 		}
 	});
 	win.loadFile("public/index.html");
-	IS_DEV ? win.webContents.openDevTools() : win.removeMenu();
+	config.IS_DEV ? win.webContents.openDevTools() : win.removeMenu();
 }
 
 app.whenReady().then(createWindow);
@@ -37,4 +37,8 @@ app.on("activate", () => {
 // listener events that emit back and forth to the html (renderer)
 ipcMain.on("test", (event, arg) => {
 	event.returnValue = `hello there ${arg}`;
+});
+
+ipcMain.on("get-creds", (event) => {
+	event.returnValue = config;
 });
