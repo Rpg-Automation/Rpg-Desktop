@@ -41,5 +41,5 @@ build/**/*
 yarn.lock
 
 # all build files
-rpg-desktop-app*/
+rpg-typer-app*/
 release-builds/**

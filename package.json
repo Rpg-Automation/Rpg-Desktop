@@ -1,11 +1,12 @@
 {
-  "name": "rpg-desktop-app",
+  "name": "rpg-typer-app",
   "version": "1.0.0",
   "description": "an electron app",
   "main": "index.js",
   "scripts": {
     "rebuild": ".\\node_modules\\.bin\\electron-rebuild",
-    "distribute": "npm run lint && electron-packager . --overwrite --prune=true --asar --out=release-builds --all",
+	"distribute": "npm run lint && electron-packager . --overwrite --prune=true --asar --out=release-builds",
+    "distribute-all": "npm run lint && electron-packager . --overwrite --prune=true --asar --out=release-builds --all",
     "lint": "eslint --fix --ext .js,.jsx .",
     "start": "electron ."
   },
