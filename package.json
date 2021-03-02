@@ -1,0 +1,30 @@
+{
+  "name": "rpg-desktop-app",
+  "version": "1.0.0",
+  "description": "an electron app",
+  "main": "index.js",
+  "scripts": {
+    "distribute": "npm run lint && electron-packager . --overwrite --prune=true --asar --out=release-builds --all",
+    "lint": "eslint --fix --ext .js,.jsx .",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rpg-Automation/Rpg-Desktop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rpg-Automation/Rpg-Desktop/issues"
+  },
+  "homepage": "https://github.com/Rpg-Automation/Rpg-Desktop#readme",
+  "devDependencies": {
+    "@typescript-eslint/parser": "^4.16.1",
+    "electron": "^11.3.0",
+    "eslint": "^7.21.0"
+  },
+  "dependencies": {
+    "electron-packager": "^15.2.0"
+  }
+}
