@@ -1,10 +1,4 @@
-//const robot = require("robotjs");
 const robot = require("kbm-robot");
-
-//const demo = () => {
-//	robot.typeString("test");
-//	robot.keyTap("enter");
-//};
 
 robot.startJar();
 
@@ -17,5 +11,6 @@ const demo = (text) => {
 };
 
 module.exports = {
+	robot: robot,
 	demo: demo
 };
