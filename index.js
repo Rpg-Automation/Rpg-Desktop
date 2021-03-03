@@ -58,5 +58,5 @@ ipcMain.on("run-false", (event) => {
 
 setInterval(() => {
 	console.log(shouldRun);
-	if (shouldRun) demo();
+	if (shouldRun) demo("rpg hunt");
 }, 5000);
